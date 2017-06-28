@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="config.sql.mapper.mypage-sql">
+	<select id="memberInfo" parameterType="java.util.Map" resultType="java.util.Map">
+		<![CDATA[
+			{CALL SP_FRONT_MEMBER_INFO(#{userId})}
+		]]>
+	</select>
+	
+	<update id="userInfoUdt" statementType="CALLABLE">
+		<![CDATA[
+			{CALL SP_FRONT_MEMBER_UDP(#{seq}
+									,#{userpassword}
+									,#{userNm}
+									,#{userSex}
+									,#{userMobile}
+									,#{userBirthDt}
+									,#{nation}
+									,#{postNum}
+									,#{addr}
+									,#{addrDetail}
+									,#{retStr, mode=OUT, jdbcType=INTEGER, javaType=INTEGER, resultMap=hashmap}
+			
+			)}
+		]]>
+	</update>
+	
+	<!--  회원 탈퇴 -->
+	<delete id="userDelete" statementType="CALLABLE">
+		{CALL SP_FRONT_MEMBER_DEL (
+			#{seq}
+			,#{whtdrResn}
+			,#{whtdrResnCont}
+			,#{retStr, mode=OUT, jdbcType=INTEGER , javaType=INTEGER, resultMap=hashmap}
+		)}
+	</delete>
+	
+	<select id="userLastGameInfo" parameterType="java.util.Map" resultType="java.util.Map">
+		<![CDATA[
+			{CALL SP_FRONT_MEMBER_LASTGAME_INFO(#{userId}
+											,#{maxSet}
+											,#{gameSeq}
+			)}
+		]]>
+	</select>
+
+	<!-- 유형테스트 히스토리 -->
+	<select id="typeTestHistory" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		{CALL SP_FRONT_MYPAGE_TYPETEST(
+			#{userId}
+			,#{pageNum}
+			,#{pageSize}
+			)}
+	]]>
+	</select>
+	
+	<select id="getMemberCnt" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		{CALL SP_FRONT_MEMBER_CNT(
+			#{userId}
+			)}
+	]]>
+	</select>
+
+	<select id="getTotalAvgCnt" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		{CALL SP_FRONT_TOTAL_AVG_CNT(
+			#{ndType}
+			)}
+	]]>
+	</select>
+	
+	<select id="getMemberScr" parameterType="hashmap" resultType="hashmap">
+		{CALL SP_FRONT_MEMBER_AVG_SCR(
+			#{userId}
+			)}
+	</select>
+	
+	<select id="getTotalAvgScr" parameterType="hashmap" resultType="hashmap">
+	<![CDATA[
+		{CALL SP_FRONT_TOTAL_AVG_SCR(
+			#{ndType}
+			)}
+	]]>
+	</select>
+	
+	
+	<select id="getMemberBadgeCnt" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		{CALL SP_FRONT_MEMBER_BADGE_CNT(
+			#{userId}
+			)}
+	]]>
+	</select>
+</mapper>

@@ -1,0 +1,122 @@
+@charset"utf-8";
+/*--------------------------------------
+	HTML Elements Default Properties
+---------------------------------------*/
+/* = Reset
+---------------------------------------*/
+*{ margin:0; padding:0; }
+html,body{width:100%;height:100%}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button{margin:0;padding:0}
+body,h1,h2,h3,h4,input,button { font-family:Nanum Gothic,'나눔스퀘어','굴림', sans-serif; color:#666; font-weight:400;}
+h1,h2,h3,h4{color:#000;}
+h5{color:#333;}
+h6{color:#252525;}
+body{background:#fff; word-break:break-all;-ms-word-break:break-all; font-size:15px; }
+ul,ol,dl,li {list-style:none}
+input,select,button,textarea{vertical-align:middle;font-family:Nanum Gothic} /*form *, */
+form { margin:0; padding:0;height:100%;}
+fieldset { margin:0; padding:0; border:none 0 transparent; }
+legend { display:none; }
+i,em,address{font-style:normal}
+label,button{cursor:pointer;color:#555;}
+input,button {overflow:visible;color:#555;}
+button{margin:0;padding:0;}
+button *{position:relative}
+button img {left:-3px;*left:auto}
+option{padding-right:6px}
+hr{display:none}
+caption { display:none;}
+legend,caption{*width:0}
+img,fieldset,iframe{border:0 none}
+img{vertical-align:top}
+select { border:1px solid #bfbfbf; padding:0 0 0 0;}
+a {vertical-align:baseline; background:transparent; text-decoration:none;color:#555;}
+/* a:hover{text-decoration:underline} */
+table { border-collapse:collapse;table-layout:fixed;border-spacing:0;color:#555;  width:100%;} /* border:0px !important; */
+table tr th img,
+table tr td img{ vertical-align:middle;}
+table th, table td{ } /*border:0px !important;*/
+table a {color:#555;}
+table a:hover,
+table a:focus{color:#008445;text-decoration:underline; }
+
+/* = Font Face
+---------------------------------------*/
+@font-face{
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 700; 
+	src:url("/resources/css/font/NanumGothicBold.eot");
+	src:local(『), url("/resources/css/font/NanumGothicBold.woff") format("woff")
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400; 
+ 	src:url("/resources/css/font/NanumGothic.eot");
+	src:local(『), url("/resources/css/font/NanumGothic.woff") format("woff")
+}
+
+
+@font-face {
+  font-family: 'Nanum Gothic Sq';
+  font-style: normal;
+  font-weight: 400; 
+ 	src:url("/resources/css/font/NanumSquareR.eot");
+	src: url(/resources/css/font/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+	url(/resources/css/font/NanumSquareR.woff) format('woff'),
+	url(/resources/css/font/NanumSquareR.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic Sq';
+  font-style: normal;
+  font-weight: 600; 
+ 	src:url("/resources/css/font/NanumSquareB.eot");
+	src: url(/resources/css/font/NanumSquareB.eot?#iefix) format('embedded-opentype'),
+	url(/resources/css/font/NanumSquareB.woff) format('woff'),
+	url(/resources/css/font/NanumSquareB.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic Sq';
+  font-style: normal;
+  font-weight: 700; 
+ 	src:url("/resources/css/font/NanumSquareEB.eot");
+	src: url(/resources/css/font/NanumSquareEB.eot?#iefix) format('embedded-opentype'),
+	url(/resources/css/font/NanumSquareEB.woff) format('woff'),
+	url(/resources/css/font/NanumSquareEB.ttf) format('truetype');
+}
+
+
+/* Global Class
+---------------------------------------*/
+.clear{clear:both;}
+.png24{tmp:expression(setPng24(this));} 
+
+.Auto-clear{ clear:both; }
+/* clear float without additional element */
+.Auto-clearSelf:after{content:".";height:0;visibility:hidden;display:block;clear:both;}
+/*.Auto-clearSelf{display:inline-block;}*/
+.Auto-hideLabel{position:absolute;left:-5000px;width:0;}
+.hide { display:none !important; }
+
+/* File tag
+---------------------------------------*/
+.filetag img{margin-left:5px;padding:0px;}
+input.filetag{vertical-align:middle;position:absolute;cursor:pointer;filter:alpha(opacity: 0);outline: none;opacity:0;selector-dummy:expression(this.hideFocus=true);-moz-opacity:0;}
+
+/* Skip Navigation
+---------------------------------------*/
+.accessibility{position:absolute;width:100%; height:0;}
+.accessibility a{position:absolute; left:0; top:0; display:block; overflow:hidden; width:1px; height:1px; text-align:center; color:#000; white-space:nowrap; font-weight:bold;}
+.accessibility a:focus, .accessibility a:hover, .accessibility a:active {width:100%; height:auto; padding:10px 0; background:#000; color:#fff; z-index:1000;}
+
+.blind, .bind { position:absolute; top:-99999px; left:0px; width:0px; height:0px; overflow:hidden; font-size:0px; line-height:0px;}
+.buttonList{margin-top:50px;}
+.buttonList li{margin-top:10px;}
+
+/* For Print
+---------------------------------------*/
+@media print{
+	#wrap,#content{ width:auto !important}
+	#sideNav,.fotoerCopy,.accessibility { display: none !important}
+}
